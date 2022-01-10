@@ -2,19 +2,22 @@ import Image from 'next/image'
 import matter from "gray-matter"
 import ReactMarkdown from 'react-markdown'
 import Layout from "../../components/layout"
+import Seo from "../../components/seo"
 import * as style from "../../styles/singleBlog.module.scss"
 
 
-const SingleBlog = (props) => {
+const SingleBlog = ({ frontmatter, markdownBody }) => {
+    const { title, date, excerpt, image } = frontmatter
     return (
     <Layout>
+        <Seo title = {title} description= {excerpt} />
         <div className = {style.hero}>
-            <Image src = {props.frontmatter.image} alt = "blog-image" height = "500" width = "1000" />
+            <Image src = {image} alt = "blog-image" height = "500" width = "1000" />
         </div>
         <div className={style.wrapper}>
             <div className={style.container}>
-                <h1>{props.frontmatter.title}</h1>
-                <p>{props.frontmatter.date}</p>
+                <h1>{title}</h1>
+                <p>{date}</p>
                     <ReactMarkdown>
                         {props.markdownBody}
                     </ReactMarkdown> 
