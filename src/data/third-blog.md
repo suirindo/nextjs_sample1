@@ -3,7 +3,7 @@ id: 3
 uid: 3
 title: "3つ目の記事"
 date: "2021-03-03"
-image: /images/pic3.jpg
+image: /images/pic3.jpeg
 excerpt: Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
 ---
 

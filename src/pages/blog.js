@@ -14,11 +14,12 @@ const Blog = (props) => {
                 <p>エンジニアの日常生活</p>
                 {props.blogs.map((blog, index) => {
                     return(
-                        <div key={index} className={style.blogCars}>
+                        <div key={index} className={style.blogCard}>
                             <div className = {style.textContainer}>
                                 <h3>{blog.frontmatter.title}</h3>
+                                <p>{blog.frontmatter.excerpt}</p>
                                 <p>{blog.frontmatter.date}</p>
-                                <Link href={`/blog/${blog.slug}`}><a>ReadMore</a></Link>
+                                <Link href={`/blog/${blog.slug}`}><a>Read More</a></Link>
                             </div>
                             <div className = {style.cardImg}>
                                 <Image src = {blog.frontmatter.image} alt = "card-image" height = {300} width = {1000} quality = {90} />
