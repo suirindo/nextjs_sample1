@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 import * as style from "../styles/blog.module.scss"
 
 
-const Blog = (blogs) => {
+const Blog = ({blogs}) => {
     return (
       <Layout>
           <Seo title = "ブログ" description="これはブログページです" />
@@ -15,6 +15,7 @@ const Blog = (blogs) => {
                 <h1> Blog </h1>
                 <p>エンジニアの日常生活</p>
                 {blogs.map((blog, index) => {
+                    const { title, date, excerpt, image} = blog.frontmatter
                     return(
                         <div key={index} className={style.blogCard}>
                             <div className = {style.textContainer}>
@@ -34,6 +35,8 @@ const Blog = (blogs) => {
       </Layout>
     )
 }
+
+
 
 export default Blog
 
