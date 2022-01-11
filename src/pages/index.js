@@ -11,7 +11,7 @@ const Index = () => {
       <div className = {style.hero}>
         <Image src = "/images/index-hero.jpeg" alt = "hero" layout = "fill" objectFit = "cover" quality = {90} />
         <div className={style.textContainer}>
-            <h1>I'm asagiman</h1>
+            <h1>Im asagiman</h1>
             <h3>JavaScript Developer</h3>
           </div>
       </div>
