@@ -27,5 +27,10 @@ export async function getAllBlogs(){
 
 export async function getSingleBlog(context) {
     const { slug } = context.params
-    
+    const data = awaitimport(`../data/${slug}.md`)
+    const singleDocument = matter(data.default)
+
+    return {
+        singleDocument: singleDocument
+    }
 }
