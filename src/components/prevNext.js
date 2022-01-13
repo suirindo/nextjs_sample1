@@ -24,3 +24,5 @@ const PrevNext = (props) => {
         </div>
     )
 }
+
+export default PrevNext

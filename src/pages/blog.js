@@ -2,11 +2,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Pagination from '../components/pagination'
 import * as style from "../styles/blog.module.scss"
-import { getAllBlogs } from "../utils/mdQueries"
+import { getAllBlogs, blogsPerPage } from "../utils/mdQueries"
 
 
-const Blog = ({blogs}) => {
+const Blog = ({blogs, numberPages }) => {
     return (
       <Layout>
           <Seo title = "ブログ" description="これはブログページです" />
@@ -31,6 +32,7 @@ const Blog = ({blogs}) => {
                     )}
                 )}
             </div>
+            <Pagination numberPages={numberPages} />
         </div>
       </Layout>
     )
@@ -38,10 +40,12 @@ const Blog = ({blogs}) => {
 export default Blog
 
 export async function getStaticProps() {
-    const { orderedBlogs } = await getAllBlogs()
+    const { orderedBlogs, numberPages } = await getAllBlogs()
+    const limitedBlogs = orderedBlogs.slice(0, blogsPerPage)
     return {
         props: {
-            blogs: orderedBlogs
-        }
+            blogs: limitedBlogs,
+            numberPages: numberPages,
+        },
     }
 }

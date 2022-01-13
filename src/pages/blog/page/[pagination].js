@@ -2,11 +2,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Layout from "../../../components/layout"
 import Seo from "../../../components/seo"
+import Pagination from "../../../components/pagination"
 import * as style from "../../../styles/blog.module.scss"
 import { getAllBlogs, blogsPerPage } from '../../../utils/mdQueries'
 
 
-const Blog = ({blogs}) => {
+const PaginationPage = ({blogs, numberPages }) => {
     return (
       <Layout>
           <Seo title = "ブログ" description="これはブログページです" />
@@ -31,11 +32,12 @@ const Blog = ({blogs}) => {
                     )}
                 )}
             </div>
+            <Pagination numberPages = {numberPages} />
         </div>
       </Layout>
     )
 }
-export default Blog
+export default PaginationPage
 
 export async function getStaticPaths() {
     const { numberPages } = await getAllBlogs()

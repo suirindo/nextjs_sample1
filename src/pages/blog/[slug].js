@@ -20,7 +20,7 @@ const SingleBlog = ({ frontmatter, markdownBody, prev, next }) => {
                 <h1>{title}</h1>
                 <p>{date}</p>
                     <ReactMarkdown>
-                        {props.markdownBody}
+                        {markdownBody}
                     </ReactMarkdown> 
             </div>
             <PrevNext prev = {prev} next = {next} />
