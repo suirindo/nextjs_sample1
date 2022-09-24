@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { client } from '../libs/client';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 
 // SSGを使ってデータを取得する
 export const getStaticProps = async () => {
